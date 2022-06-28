@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--
+     Albion Online Build Generator
+    (C) 2021, Ferndor
+  
+    Changes
+    [2021-05-13] 
+    * HTML page look similar to official albiononline.com website
+    * added weapons from the mage tree
+    * made single item slots rerollable by clicking a slot
+-->
+<html>
+
+<head>
+  <title>Albion Build Generator</title>
+  <meta charset="UTF-8" />
+  <style>
+
+    html {
+      background: #e7e4db;
+      color: black;
+      font-family: opensans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+      font-size: 86%;
+    }
+
+    .albox {
+      background: #d9d8d1;
+      color: black;
+      padding: 1em;
+      margin: auto 5em;
+      text-align: center;
+    }
+
+    footer {
+      margin: auto 5em;
+      margin-top: 2em;
+      padding: 1em;
+    }
+
+    .titlebar {
+      background: #580701;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+
+    .titlebar h1 {
+      font-size: 120%;
+      line-height: 1.5;
+      padding: .25em;
+    }
+
+    .flex-container {
+      display: flex;
+    }
+
+    .flex-child {
+      margin-top: 1em;
+      /* width: 19.5em;
+      max-width: 19.5em; */
+      flex: 1;
+      /* margin: auto; */
+    }
+
+    .flex-child:first-child {
+      /* margin-right: 20px; */
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 6em 6em 6em;
+      grid-template-rows: 6em 6em 6em 6em;
+      column-gap: .5em;
+      row-gap: .5em;
+    }
+
+    .grid>span {
+      background-color: #d8cfc8;
+      border: solid #c5bdb6 .2pt;
+    }
+
+    .hideslot {
+      background-color: inherit !important;
+      border: 0 none;
+      visibility: hidden;
+    }
+
+    .grid img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .gridDetails {
+      display: grid;
+      grid-template-columns: 6em;
+      column-gap: .5em;
+      row-gap: .5em;
+    }
+
+    .gridDetails>span {
+      background-color: #d8cfc8;
+      border: solid #c5bdb6 .2pt;
+    }
+
+    .gridDetails weapon {
+      display: grid;
+      grid-template-rows: 6em 6em 6em 6em;
+      column-gap: .5em;
+      row-gap: .5em;
+    }
+
+    ul.build-item-details {
+      position: relative;
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+      margin: 0
+    }
+
+    .build-item-details li {
+      display: inline-block;
+
+    }
+
+    .build-item-details img {
+      margin-left: 5px;
+    }
+
+    /* .col:nth-child(1) {
+      grid-column: span 1;
+    }
+    .col:nth-child(2) {
+      grid-row-start: 2;
+      grid-column: span 1;
+    }
+    .col:nth-last-child(2) {
+      grid-row-start: 3;
+      grid-column: 3 / span 4;
+    }
+
+    .col:nth-last-child(1) {
+      grid-row-start: 3;
+      grid-column: 7 / span 4;
+    }
+
+    .col {
+      background-color: tomato;
+    } */
+
+    /* .gridDetails>span {
+      background-color: #d8cfc8;
+      border: solid #c5bdb6 .2pt;
+    }
+
+    .hideslot {
+      background-color: inherit !important;
+      border: 0 none;
+      visibility: hidden;
+    }
+
+    .gridDetails img {
+      max-width: 100%;
+      max-height: 100%;
+    } */
+
+
+
+
+
+    .buttonbar {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+    .version {
+      font-size: .8em;
+      margin-bottom: 2em;
+    }
+
+    .item-slot {
+      cursor: auto;
+    }
+
+    .item-slot:hover {
+      cursor: pointer;
+      background-color: #bcb4ae;
+      border: solid #938d88 .2pt;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="database.js"></script>
+
+  <div class="albox">
+    <div class="titlebar">
+      <h1>Albion Build Generator</h1>
+    </div>
+
+    <div class="flex min-h-screen flex-col md:grid md:grid-cols-3">
+      <div class="col-span-2 flex h-full flex-1 items-center justify-center bg-gray-200">
+        <div class="grid">
+          <span class="item-slot" id="slot-bag" onclick="rerollSlot(this)">
+            <img id="img-bag" />
+          </span>
+          <span class="item-slot" id="slot-helmet" onclick="rerollSlot(this)">
+            <img id="img-helmet" />
+          </span>
+          <span class="item-slot" id="slot-cape" onclick="rerollSlot(this)">
+            <img id="img-cape" />
+          </span>
+          <span class="item-slot" id="slot-weapon" onclick="rerollSlot(this)">
+            <img id="img-weapon" />
+          </span>
+          <span class="item-slot" id="slot-armor" onclick="rerollSlot(this)">
+            <img id="img-armor" />
+          </span>
+          <span class="item-slot" id="slot-offhand" onclick="rerollSlot(this)">
+            <img id="img-offhand" />
+          </span>
+          <span class="item-slot" id="slot-food" onclick="rerollSlot(this)">
+            <img id="img-food" />
+          </span>
+          <span class="item-slot" id="slot-shoes" onclick="rerollSlot(this)">
+            <img id="img-shoes" />
+          </span>
+          <span class="item-slot" id="slot-potion" onclick="rerollSlot(this)">
+            <img id="img-potion" />
+          </span>
+          <span class="hideslot"></span>
+          <span class="item-slot" id="slot-mount" onclick="rerollSlot(this)">
+            <img id="img-mount" />
+          </span>
+          <span class="hideslot"></span>
+        </div>
+      </div>
+
+
+      <ul class="col-span-1 block flex-none [&>li:nth-child(2n)]:bg-gray-100">
+        <!-- <div class="gridDetails">
+          <div class="weapon"> -->
+        <li class="flex flex-col gap-2 p-4">
+          <h2 class="text-lg font-semibold">Weapon</h2>
+          <span class="block">Tier 69, Diddle Kid's Magic Gloves</span>
+          <div class="flex flex-row gap-2">
+            <img id="img-weapon-detail" onclick="rerollSlot(this)" />
+            <img id="img-weapon-q" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
+            <img id="img-weapon-w" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
+            <img id="img-weapon-e" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
+            <img id="img-weapon-passive" src="https://render.albiononline.com/v1/spell/bane" onclick="rerollSlot(this)" />
+          </div>
+        </li>
+        <li class="flex flex-col gap-2 p-4">
+          <h2 class="text-lg font-semibold">Helmet</h2>
+          <span class="block">Tier 69, Diddle Kid's Magic Helm</span>
+          <div class="flex flex-row gap-2">
+            <img id="img-helmet-detail"  onclick="rerollSlot(this)" />
+            <img id="img-helmet-d" src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
+            <img id="img-helmet-passive" src="https://render.albiononline.com/v1/spell/bane"  onclick="rerollSlot(this)" />
+          </div>
+        </li>
+        <li class="flex flex-col gap-2 p-4">
+          <h2 class="text-lg font-semibold">Armor</h2>
+          <span class="block">Tier 69, Diddle Kid's Magic armor</span>
+          <div class="flex flex-row gap-2">
+            <img id="img-armor-detail"  onclick="rerollSlot(this)" />
+            <img id="img-armor-r" src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
+            <img id="img-armor-passive" src="https://render.albiononline.com/v1/spell/bane"  onclick="rerollSlot(this)" />
+          </div>
+        </li>
+        <li class="flex flex-col gap-2 p-4">
+          <h2 class="text-lg font-semibold">Shoes</h2>
+          <span class="block">Tier 69, Diddle Kid's Magic shoes</span>
+          <div class="flex flex-row gap-2">
+            <img id="img-shoes-detail"  onclick="rerollSlot(this)" />
+            <img id="img-shoes-f"  src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
+            <img id="img-shoes-passive"  src="https://render.albiononline.com/v1/spell/bane" onclick="rerollSlot(this)" />
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <form>
+      <div class="buttonbar">
+        <button type="button" onclick="roll()">Roll Build</button>
+
+      </div>
+    </form>
+  </div>
+  </div>
+
+  <footer>
+    <div>
+      Albion Online Build Generator</br>
+      Version 0.11</br>
+      &copy; 2021, Coding by Ferndor</br>
+      Discord: Ferndor#5118
+    </div>
+  </footer>
+
+  <script>
+
+    function getImageURL(name) {
+      return "https://render.albiononline.com/v1/item/" + name;
+    }
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    function select(slot) {
+      var count = 0;
+      for (var i = 0; i < itemdb.length; i++) {
+        if (itemdb[i].slot == slot) {
+          count++;
+        }
+      }
+      if (count == 0) {
+        return null;
+      }
+      var sel = getRandomInt(count);
+      if (sel < 0) {
+        return null;
+      }
+      var index = 0;
+      for (var i = 0; i < itemdb.length; i++) {
+        if (itemdb[i].slot == slot) {
+          if (index == sel) {
+            return itemdb[i];
+          }
+          index++;
+        }
+      }
+      return null;
+    }
+
+    function setItem(slot, item) {
+      console.log("set slot " + slot + " item " + (item != null ? item.name : "-"));
+      var img = document.getElementById("img-" + slot);
+
+      if (slot.includes("detail")) {
+        console.log('DETAIL', item)
+      }
+
+      if (img == null) {
+        console.log("slot img tag not found: " + slot);
+        return;
+      }
+      if (item == null) {
+        img.src = "";
+      } else {
+        if (item.exactname == true) {
+          img.src = getImageURL(item.name);
+        } else {
+          img.src = getImageURL("T8_" + item.name);
+        }
+      }
+    }
+
+    function roll() {
+
+      var twohand = true;
+      // for (var slot of slots) {
+      //     var item = select(slot);
+      // if (slot != "offhand") {
+      //   if (item != null && item.twohand == false) {
+      //     twohand = false;
+      //     }
+      //   setItem(slot, item);
+      // }
+      const build = new Object();
+      build.bag = select("bag");
+      build.helmet = select("helmet");
+      build.cape = select("cape");
+      build.weapon = select("weapon");
+      build.armor = select("armor");
+      build.offhand = select("offhand");
+      build.food = select("food");
+      build.shoes = select("shoes");
+      build.potion = select("potion");
+      build.mount = select("mount");
+
+      console.log(build)
+
+      for (var slot of slots) {
+        if (slot != "offhand") {
+          if (build['weapon'] != null && build['weapon'].twohand == false) {
+            twohand = false;
+          }
+          // console.log(slot)
+          // console.log(build[slot])
+          setItem(slot, build[slot]);
+        }
+        if (slot.includes('detail')) {
+          setItem(slot, build[slot.split('-')[0]])
+        }
+      }
+
+      if (twohand) {
+        setItem("offhand", null);
+      } else {
+        var item = select("offhand");
+      }
+    }
+
+    function isValidSlot(name) {
+      for (var slot of slots) {
+        if (slot == name) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function rerollSlot(elem) {
+      if (elem == null) {
+        console.log("parameter elem is missing");
+        return;
+      }
+      var slot = elem.id;
+      if (slot != null && slot.startsWith("slot-")) {
+        slot = slot.substr(5);
+      }
+      if (!isValidSlot(slot)) {
+        console.log("not a valid slot: " + slot);
+        return;
+      }
+
+      if (slot != "offhand") {
+        var item = select(slot);
+        if (item != null && item.twohand == false) {
+          //twohand = false;
+        }
+        setItem(slot, item);
+      }
+    }
+
+    roll(); // roll to initialize
+  </script>
+
+</body>
+
+</html>
