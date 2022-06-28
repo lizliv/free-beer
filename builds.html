@@ -15,6 +15,132 @@
   <title>Albion Build Generator</title>
   <meta charset="UTF-8" />
   <style>
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .md\:grid {
+        display: grid;
+      }
+    }
+
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    @media (min-width: 768px) {
+      .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+
+    .flex-1 {
+      flex: 1 1 0%;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .bg-gray-200 {
+      --tw-bg-opacity: 1;
+      background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    }
+
+    .block {
+      display: block;
+    }
+
+    .col-span-1 {
+      grid-column: span 1 / span 1;
+    }
+
+    .flex-none {
+      flex: none;
+    }
+
+    .\[\&\>li\:nth-child\(2n\)\]\:bg-gray-100>li:nth-child(2n) {
+      --tw-bg-opacity: 1;
+      background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+    }
+
+    .p-4 {
+      padding: 1rem
+        /* 16px */
+      ;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .gap-2 {
+      gap: 0.5rem
+        /* 8px */
+      ;
+    }
+
+    .text-lg {
+      font-size: 1.125rem
+        /* 18px */
+      ;
+      line-height: 1.75rem
+        /* 28px */
+      ;
+    }
+
+    .font-semibold {
+      font-weight: 600;
+    }
+
+    .flex-row {
+      flex-direction: row;
+    }
+
+    .rounded-md {
+      border-radius: 0.375rem
+        /* 6px */
+      ;
+    }
+
+    .h-16 {
+      height: 4rem
+        /* 64px */
+      ;
+    }
+
+    .w-auto {
+      width: auto;
+    }
+
+    .shadow {
+      --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+
+
+
+
+
+
 
     html {
       background: #e7e4db;
@@ -51,21 +177,21 @@
       padding: .25em;
     }
 
-    .flex-container {
+    /* .flex-container {
       display: flex;
-    }
+    } */
 
-    .flex-child {
+    /* .flex-child {
       margin-top: 1em;
-      /* width: 19.5em;
-      max-width: 19.5em; */
+      width: 19.5em;
+      max-width: 19.5em;
       flex: 1;
-      /* margin: auto; */
+      margin: auto;
     }
 
     .flex-child:first-child {
-      /* margin-right: 20px; */
-    }
+      margin-right: 20px;
+    } */
 
     .grid {
       display: grid;
@@ -90,81 +216,6 @@
       max-width: 100%;
       max-height: 100%;
     }
-
-    .gridDetails {
-      display: grid;
-      grid-template-columns: 6em;
-      column-gap: .5em;
-      row-gap: .5em;
-    }
-
-    .gridDetails>span {
-      background-color: #d8cfc8;
-      border: solid #c5bdb6 .2pt;
-    }
-
-    .gridDetails weapon {
-      display: grid;
-      grid-template-rows: 6em 6em 6em 6em;
-      column-gap: .5em;
-      row-gap: .5em;
-    }
-
-    ul.build-item-details {
-      position: relative;
-      list-style: none;
-      display: inline-block;
-      padding: 0;
-      margin: 0
-    }
-
-    .build-item-details li {
-      display: inline-block;
-
-    }
-
-    .build-item-details img {
-      margin-left: 5px;
-    }
-
-    /* .col:nth-child(1) {
-      grid-column: span 1;
-    }
-    .col:nth-child(2) {
-      grid-row-start: 2;
-      grid-column: span 1;
-    }
-    .col:nth-last-child(2) {
-      grid-row-start: 3;
-      grid-column: 3 / span 4;
-    }
-
-    .col:nth-last-child(1) {
-      grid-row-start: 3;
-      grid-column: 7 / span 4;
-    }
-
-    .col {
-      background-color: tomato;
-    } */
-
-    /* .gridDetails>span {
-      background-color: #d8cfc8;
-      border: solid #c5bdb6 .2pt;
-    }
-
-    .hideslot {
-      background-color: inherit !important;
-      border: 0 none;
-      visibility: hidden;
-    }
-
-    .gridDetails img {
-      max-width: 100%;
-      max-height: 100%;
-    } */
-
-
 
 
 
@@ -239,44 +290,52 @@
 
 
       <ul class="col-span-1 block flex-none [&>li:nth-child(2n)]:bg-gray-100">
-        <!-- <div class="gridDetails">
-          <div class="weapon"> -->
         <li class="flex flex-col gap-2 p-4">
           <h2 class="text-lg font-semibold">Weapon</h2>
           <span class="block">Tier 69, Diddle Kid's Magic Gloves</span>
           <div class="flex flex-row gap-2">
-            <img id="img-weapon-detail" onclick="rerollSlot(this)" />
-            <img id="img-weapon-q" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
-            <img id="img-weapon-w" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
-            <img id="img-weapon-e" src="https://render.albiononline.com/v1/spell/cursed%20sickle" onclick="rerollSlot(this)" />
-            <img id="img-weapon-passive" src="https://render.albiononline.com/v1/spell/bane" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-detail" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-q" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-w" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-e" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-passive" src="https://render.albiononline.com/v1/spell/bane"
+              onclick="rerollSlot(this)" />
           </div>
         </li>
         <li class="flex flex-col gap-2 p-4">
           <h2 class="text-lg font-semibold">Helmet</h2>
           <span class="block">Tier 69, Diddle Kid's Magic Helm</span>
           <div class="flex flex-row gap-2">
-            <img id="img-helmet-detail"  onclick="rerollSlot(this)" />
-            <img id="img-helmet-d" src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
-            <img id="img-helmet-passive" src="https://render.albiononline.com/v1/spell/bane"  onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-detail" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-d" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-passive" src="https://render.albiononline.com/v1/spell/bane"
+              onclick="rerollSlot(this)" />
           </div>
         </li>
         <li class="flex flex-col gap-2 p-4">
           <h2 class="text-lg font-semibold">Armor</h2>
           <span class="block">Tier 69, Diddle Kid's Magic armor</span>
           <div class="flex flex-row gap-2">
-            <img id="img-armor-detail"  onclick="rerollSlot(this)" />
-            <img id="img-armor-r" src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
-            <img id="img-armor-passive" src="https://render.albiononline.com/v1/spell/bane"  onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-armor-detail" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-armor-r" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-armor-passive" src="https://render.albiononline.com/v1/spell/bane"
+              onclick="rerollSlot(this)" />
           </div>
         </li>
         <li class="flex flex-col gap-2 p-4">
           <h2 class="text-lg font-semibold">Shoes</h2>
           <span class="block">Tier 69, Diddle Kid's Magic shoes</span>
           <div class="flex flex-row gap-2">
-            <img id="img-shoes-detail"  onclick="rerollSlot(this)" />
-            <img id="img-shoes-f"  src="https://render.albiononline.com/v1/spell/cursed%20sickle"  onclick="rerollSlot(this)" />
-            <img id="img-shoes-passive"  src="https://render.albiononline.com/v1/spell/bane" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-detail" onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-f" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+              onclick="rerollSlot(this)" />
+            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-passive" src="https://render.albiononline.com/v1/spell/bane"
+              onclick="rerollSlot(this)" />
           </div>
         </li>
       </ul>
