@@ -29,8 +29,177 @@
       <h1>Albion Build Generator</h1>
     </div>
 
-    <div class="flex min-h-screen flex-col md:grid md:grid-cols-3">
-      <div class="col-span-2 flex h-full flex-1 items-center justify-center bg-gray-200">
+    <div class="tab">
+      <button class="tablinks" onclick="openBuild(event, 'Build1')" id="defaultOpen">Build 1</button>
+      <button class="tablinks" onclick="openBuild(event, 'Build2')">Build 2</button>
+      <button class="tablinks" onclick="openBuild(event, 'Random')">Random</button>
+    </div>
+
+    <div id="Build1" class="build-container md:grid md:grid-cols-3 ">
+      <!-- Build layout -->
+      <div class="build-child">
+        <div class="grid">
+          <span class="item-slot" >
+            <img src="https://render.albiononline.com/v1/item/T8_BAG"/>
+          </span>
+          <span class="item-slot">
+            <img  src="https://render.albiononline.com/v1/item/T7_HEAD_LEATHER_SET3"/>
+          </span>
+          <span class="item-slot">
+            <img  src="https://render.albiononline.com/v1/item/T4_CAPEITEM_FW_MARTLOCK@3"/>
+          </span>
+          <span class="item-slot" >
+            <img src="https://render.albiononline.com/v1/item/T7_MAIN_CURSEDSTAFF_UNDEAD"/>
+          </span>
+          <span class="item-slot" >
+            <img src="https://render.albiononline.com/v1/item/T7_ARMOR_PLATE_KEEPER"/>
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T7_OFF_HORN_KEEPER"/>
+          </span>
+          <span class="item-slot">
+            <img  src="https://render.albiononline.com/v1/item/Pork%20Omelette"/>
+          </span>
+          <span class="item-slot">
+            <img  src="https://render.albiononline.com/v1/item/T7_SHOES_CLOTH_SET1"/>
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/Major%20Resistance%20Potion"/>
+          </span>
+          <span class="hideslot"></span>
+          <span class="item-slot">
+            <img  src="https://render.albiononline.com/v1/item/Swiftclaw.png?locale=en"/>
+          </span>
+          <span class="hideslot"></span>
+        </div>
+      </div>
+      <!-- Build details -->
+      <ul class="detail-col [&>li:nth-child(2n)]:bg-gray-100">
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Weapon</h2>
+          <span class="block">Tier 7, Lifecurse Staff</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T7_MAIN_CURSEDSTAFF_UNDEAD"/>
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/cursed%20sickle" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/armor%20piercer" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Area%20of%20Decay"/>
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/furious"/>
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Helmet</h2>
+          <span class="block">Tier 7, Assassin Hood</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T7_HEAD_LEATHER_SET3" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Meditation" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Quick%20Thinker" />
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Armor</h2>
+          <span class="block">Tier 7, Judicator Armor</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T7_ARMOR_PLATE_KEEPER" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Force%20Shield" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Toughness" />
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Shoes</h2>
+          <span class="block">Tier 8, Hunter shoes</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T7_SHOES_CLOTH_SET1" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Energetic%20Sprint" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Concentration" />
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Build2" class="build-container md:grid md:grid-cols-3 ">
+      <!-- Build layout -->
+      <div class="build-child">
+        <div class="grid">
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T8_BAG"/>
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T8_HEAD_LEATHER_SET3"/>
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T4_CAPEITEM_FW_MARTLOCK@3" />
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T8_2H_ENIGMATICORB_MORGANA" />
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/T8_ARMOR_PLATE_KEEPER"/>
+          </span>
+          <span class="item-slot">
+            <img class=img-offhand src="https://render.albiononline.com/v1/item/T8_2H_ENIGMATICORB_MORGANA"/>
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/Pork%20Omelette@1" />
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/Elder's%20Hunter%20Shoes" />
+          </span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/Major%20Resistance%20Potion@1" />
+          </span>
+          <span class="hideslot"></span>
+          <span class="item-slot">
+            <img src="https://render.albiononline.com/v1/item/Swiftclaw.png?locale=en" />
+          </span>
+          <span class="hideslot"></span>
+        </div>
+      </div>
+      <!-- Build details -->
+      <ul class="detail-col [&>li:nth-child(2n)]:bg-gray-100">
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Weapon</h2>
+          <span class="block">Tier 69, Magic Gloves</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T8_2H_ENIGMATICORB_MORGANA" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Arcane%20Protection" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Motivating%20Cleanse" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/The%20Void"/>
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Calmness"/>
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Helmet</h2>
+          <span class="block">Tier 8, Assassin Hood</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T8_HEAD_LEATHER_SET3" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/ENERGYBURST_CHANNEL" />
+            <img class="detail-img" src ="https://render.albiononline.com/v1/spell/Balanced%20Mind" />
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Armor</h2>
+          <span class="block">Tier 8, Judicator armor</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/T8_ARMOR_PLATE_KEEPER" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Force%20Shield" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Tenacity" />
+          </div>
+        </li>
+        <li class="detail-row">
+          <h2 class="text-lg font-semibold">Shoes</h2>
+          <span class="block">Tier 8, Hunter shoes</span>
+          <div class="detail-imgs">
+            <img class="detail-img" src="https://render.albiononline.com/v1/item/Elder's%20Hunter%20Shoes"  />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Refreshing%20Sprint" />
+            <img class="detail-img" src="https://render.albiononline.com/v1/spell/Quick%20Thinker" />
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Random" class="build-container md:grid md:grid-cols-3 ">
+      <!-- Build layout -->
+      <div class="build-child">
         <div class="grid">
           <span class="item-slot" id="slot-bag" onclick="rerollSlot(this)">
             <img id="img-bag" />
@@ -66,77 +235,81 @@
           <span class="hideslot"></span>
         </div>
       </div>
-
-
-      <ul class="col-span-1 block flex-none [&>li:nth-child(2n)]:bg-gray-100">
-        <li class="flex flex-col gap-2 p-4">
+      <!-- Build details -->
+      <ul class="detail-col [&>li:nth-child(2n)]:bg-gray-100">
+        <li class="detail-row">
           <h2 class="text-lg font-semibold">Weapon</h2>
           <span class="block">Tier 69, Magic Gloves</span>
-          <div class="flex flex-row gap-2">
-            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-detail" onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-q" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+          <div class="detail-imgs">
+            <img class="detail-img" id="img-weapon-detail" onclick="rerollSlot(this)" />
+            <img class="detail-img" id="img-weapon-q" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-w" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+            <img class="detail-img" id="img-weapon-w" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-e" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+            <img class="detail-img" id="img-weapon-e" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-weapon-passive" src="https://render.albiononline.com/v1/spell/bane"
+            <img class="detail-img" id="img-weapon-passive" src="https://render.albiononline.com/v1/spell/bane"
               onclick="rerollSlot(this)" />
           </div>
         </li>
-        <li class="flex flex-col gap-2 p-4">
+        <li class="detail-row">
           <h2 class="text-lg font-semibold">Helmet</h2>
           <span class="block">Tier 69, Magic Helm</span>
-          <div class="flex flex-row gap-2">
-            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-detail" onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-d" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+          <div class="detail-imgs">
+            <img class="detail-img" id="img-helmet-detail" onclick="rerollSlot(this)" />
+            <img class="detail-img" id="img-helmet-d" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-helmet-passive" src="https://render.albiononline.com/v1/spell/bane"
+            <img class="detail-img" id="img-helmet-passive" src="https://render.albiononline.com/v1/spell/bane"
               onclick="rerollSlot(this)" />
           </div>
         </li>
-        <li class="flex flex-col gap-2 p-4">
+        <li class="detail-row">
           <h2 class="text-lg font-semibold">Armor</h2>
           <span class="block">Tier 69, Magic armor</span>
-          <div class="flex flex-row gap-2">
-            <img class="rounded-md h-16 w-auto shadow" id="img-armor-detail" onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-armor-r" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+          <div class="detail-imgs">
+            <img class="detail-img" id="img-armor-detail" onclick="rerollSlot(this)" />
+            <img class="detail-img" id="img-armor-r" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-armor-passive" src="https://render.albiononline.com/v1/spell/bane"
+            <img class="detail-img" id="img-armor-passive" src="https://render.albiononline.com/v1/spell/bane"
               onclick="rerollSlot(this)" />
           </div>
         </li>
-        <li class="flex flex-col gap-2 p-4">
+        <li class="detail-row">
           <h2 class="text-lg font-semibold">Shoes</h2>
           <span class="block">Tier 69, Magic shoes</span>
-          <div class="flex flex-row gap-2">
-            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-detail" onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-f" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
+          <div class="detail-imgs">
+            <img class="detail-img" id="img-shoes-detail" onclick="rerollSlot(this)" />
+            <img class="detail-img" id="img-shoes-f" src="https://render.albiononline.com/v1/spell/cursed%20sickle"
               onclick="rerollSlot(this)" />
-            <img class="rounded-md h-16 w-auto shadow" id="img-shoes-passive" src="https://render.albiononline.com/v1/spell/bane"
+            <img class="detail-img" id="img-shoes-passive" src="https://render.albiononline.com/v1/spell/bane"
               onclick="rerollSlot(this)" />
           </div>
         </li>
       </ul>
-    </div>
-
     <form>
       <div class="buttonbar">
         <button type="button" onclick="roll()">Roll Build</button>
-
       </div>
     </form>
+
+    </div>
+    
   </div>
   </div>
 
   <footer>
     <div>
-      Albion Online Build Generator</br>
-      Version 0.11</br>
-      &copy; 2021, Coding by Ferndor</br>
-      Discord: Ferndor#5118
+      Albion Online Build Viewer</br>
+      Version 0.1</br>
+      &copy; 2021, Coding by BrownedButter</br>
+      Discord: spitfire#0042
     </div>
   </footer>
+  <script>
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+
 </body>
 
 </html>
